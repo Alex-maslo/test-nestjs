@@ -1,8 +1,9 @@
 module.exports = {
   generateRandomUser(userContext, events, done) {
-    const randomInt = Math.floor(Math.random() * 1000000);
-    userContext.vars.name = 'TestUser' + randomInt;
-    userContext.vars.email = 'testuser' + randomInt + '@example.com';
+    const uniqueSuffix =
+      Date.now().toString() + Math.floor(Math.random() * 10000);
+    userContext.vars.name = 'TestUser' + uniqueSuffix;
+    userContext.vars.email = 'testuser' + uniqueSuffix + '@example.com';
     return done();
   },
 };
